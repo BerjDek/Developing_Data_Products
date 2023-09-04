@@ -21,3 +21,4 @@ multiplyNumbers <- function(numbers1, numbers2) {
   }
   runGadget(ui, server)
 }
+
