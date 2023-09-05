@@ -1,0 +1,53 @@
+---
+title: "My fancy presentation"
+author: "Berj Dekramanjian"
+date: "2023-09-05"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## My new Slide
+Some Content
+
+***
+A slide without title
+
+## My title
+
+### A top level heading
+
+#### a second level subheading
+
+
+
+## My title
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+1. item a
+2. item b  
+
+
+## My new slide for styles
+
+Plain Text
+
+*italics*
+**Bold text**
+
+`for (i %in% 1:10)`
+
+
+## slide with code
+```{r}
+head(mtcars, comment = "")
+```
+
+
+
