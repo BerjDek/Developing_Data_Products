@@ -45,8 +45,8 @@ Plain Text
 
 
 ## slide with code
-```{r}
-head(mtcars, comment = "")
+```{r, comment = ""}
+head(mtcars) ## comment means that the # symbol before the lines gets wiped
 ```
 
 

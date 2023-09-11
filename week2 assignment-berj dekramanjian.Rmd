@@ -1,29 +1,32 @@
 ---
 title: "R Markdown and Leaflet"
 author: "Berj Dekramanjian"
-date: "2023-09-08"
+date: "11th September 2023"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
+library(leaflet)
+library(dplyr)
 ```
 
 ## R Markdown
- I created a map of the cities all the cities i lived in
+ I created a map of the cities all the cities i lived in.
+ dplyr and leaflet packages were loaded however the echo was set on false to reduce clutter
 
 
-```{r cars}
-```{r, echo=FALSE}
+
+```{r map}
 md_cities <- data.frame(name = c("Zahle", "Beirut", "Istanbul", "Tallinn", 
                                  "Maastricht", "Barcelona"),
                         pop = c(200000, 1900000, 15500000, 440000, 122000,
                                 1600000),
-                        lat = c(33.8464, 33.8938, 41.0082, 59.4370, 50.8514, 41.3851),
-                        lng = c(35.9042, 35.5018, 28.9784, 24.7536, 5.6915, 2.1734))
-md_cities %>%
-  leaflet() %>%
-  addTiles() %>%
-  addCircles(weight = 1, radius = sqrt(md_cities$pop) * 30)
+                        latitude = c(33.8464, 33.8938, 41.0082, 59.4370, 50.8514, 41.3851),
+                        longitude = c(35.9042, 35.5018, 28.9784, 24.7536, 5.6915, 2.1734))
+
+leaflet(data = md_cities) %>% 
+addTiles() %>%
+addCircles(weight = 1, radius = sqrt(md_cities$pop) * 30, lat = ~latitude, lng = ~longitude)
 ```
 
