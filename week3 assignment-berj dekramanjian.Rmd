@@ -1,0 +1,28 @@
+---
+title: "Plotly assignment"
+author: "Berj Dekramanjian"
+date: "11th Sept 2023"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+```
+
+## Employment Rate Across Countries in Different Years
+In order to create this plot, i downloaded a dataset from gapminder, and then selected a few random countries.
+The plot aims to show the employment rate of those between 15 and 24 through out the years.
+
+```{r, echo=FALSE}
+library(plotly)
+library(dplyr)
+library(ggplot2)
+
+
+data <- read.csv("ddf.csv") %>% 
+filter(geo %in% c("afg", "arg", "arm", "bel", "chn", "deu", "egy", "swe"))%>%
+  rename(Employment_Rate = aged_15_24_employment_rate_percent)
+
+
+plot_ly(data, x = ~time, y = ~Employment_Rate, color = ~geo, type = "scatter", mode = "lines")
+```
